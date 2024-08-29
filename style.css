@@ -1,0 +1,108 @@
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4e1001, #feb47b); /* Gradient background */
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: url('https://source.unsplash.com/random/800x600') no-repeat center center; /* Background image */
+    background-size: cover;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    max-width: 800px; /* Larger container */
+    width: 90%;
+    animation: fadeIn 0.5s ease-out, float 3s ease-in-out infinite;
+    position: relative; /* Ensures proper positioning of the image container */
+}
+
+.image-container {
+    width: 400px; /* Fixed size for square */
+    height: 400px; /* Fixed size for square */
+    margin: 2rem;
+    background-color: #fff; /* Background color */
+    border-radius:50px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    overflow: hidden; /* Ensures the image does not overflow the square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-out, float 3s ease-in-out infinite;
+
+}
+
+.image-container img {
+     /* Ensures image fits container */
+    object-fit:fill /* Ensures image covers the container without distortion */
+}
+
+h1 {
+    color: #fff; /* White text color for better contrast */
+    font-size: 3rem; /* Larger font size */
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s ease-out 0.25s both;
+}
+
+p {
+    color: #f8f9fa; /* Light color for better readability */
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    animation: fadeIn 0.5s ease-out 0.5s both;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #28a745; /* Vibrant green color */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px; /* Rounded button */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-out 0.75s both, pulse 1s infinite;
+}
+
+.cta-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px);
+    animation: none; /* Stops animation on hover */
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem; /* Adjust font size for smaller screens */
+    }
+    
+    .container {
+        padding: 2rem;
+    }
+
+    .image-container {
+        width: 300px; /* Adjust size for smaller screens */
+        height: 300px;
+    }
+}
